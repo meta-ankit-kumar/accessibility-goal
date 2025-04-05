@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature Photography | Exploring the Beauty of Nature</title>
+    <meta name="description" content="Discover stunning nature photography from around the world and join our newsletter for updates.">
+    <style>
+        :root {
+            --primary-color: #2c7be5;
+            --primary-dark: #1a68d1;
+            --text-color: #2d3748;
+            --light-bg: #f8f9fa;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: var(--text-color);
+            background-color: #fff;
+        }
+        
+        header, main, footer {
+            margin-bottom: 2rem;
+        }
+        
+        header {
+            text-align: center;
+            padding: 2rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #1a365d;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #2c5282;
+        }
+        
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            transition: all 0.2s;
+        }
+        
+        nav a:hover, nav a:focus {
+            background-color: #ebf4ff;
+            outline: none;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s;
+        }
+        
+        img:hover {
+            transform: scale(1.02);
+        }
+        
+        figure {
+            margin: 0;
+            text-align: center;
+        }
+        
+        figcaption {
+            margin-top: 0.5rem;
+            font-style: italic;
+            color: #4a5568;
+        }
+        
+        form {
+            background: var(--light-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #cbd5e0;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(44, 123, 229, 0.2);
+        }
+        
+        button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.2s;
+            width: 100%;
+        }
+        
+        button:hover, button:focus {
+            background: var(--primary-dark);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(44, 123, 229, 0.3);
+        }
+        
+        .skip-link {
+            position: absolute;
+            left: -10000px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            background: white;
+            color: var(--primary-color);
+            padding: 0.5rem;
+            border-radius: var(--border-radius);
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        .skip-link:focus {
+            position: static;
+            width: auto;
+            height: auto;
+            margin: 0.5rem;
+        }
+        
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .photo-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s;
+        }
+        
+        .photo-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .photo-card img {
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+        }
+        
+        .photo-card p {
+            padding: 1rem;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        .email-updates-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .email-updates-checkbox input {
+            width: auto;
+            margin: 0;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid #e2e8f0;
+            color: #718096;
+        }
+        
+        footer nav ul {
+            margin: 1rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: center;
+            }
+            
+            .photo-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to content link for keyboard users -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header role="banner">
+        <h1>Nature Photography</h1>
+        <p>Exploring the beauty of the natural world</p>
+        
+        <nav aria-label="Main navigation">
+            <ul role="menubar">
+                <li role="none"><a href="#home" role="menuitem">Home</a></li>
+                <li role="none"><a href="#gallery" role="menuitem">Gallery</a></li>
+                <li role="none"><a href="#about" role="menuitem">About</a></li>
+                <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main id="main-content" role="main">
+        <section aria-labelledby="featured-heading">
+            <h2 id="featured-heading">Featured Photo</h2>
+            <figure>
+                <img src="https://sdmntprsouthcentralus.oaiusercontent.com/files/00000000-081c-51f7-9d94-8aad72d02ec8/raw?se=2025-04-05T07%3A20%3A09Z&sp=r&sv=2024-08-04&sr=b&scid=13d8043e-7e7f-5d12-b2c9-d2a9cf2a1561&skoid=7c382de0-129f-486b-9922-6e4a89c6eb7d&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-04T09%3A07%3A42Z&ske=2025-04-05T09%3A07%3A42Z&sks=b&skv=2024-08-04&sig=H1Kk%2BNHeeKY9plKMS6Y7X1g4YAozJHD3twHHr2FgzNc%3D" 
+                     alt="A serene mountain lake at sunrise with mist rising from the water and pine trees in the foreground"
+                     width="800"
+                     height="600">
+                <figcaption>A peaceful mountain lake at sunrise in the Canadian Rockies</figcaption>
+            </figure>
+        </section>
+        
+        <section aria-labelledby="recent-heading">
+            <h2 id="recent-heading">Recent Photos</h2>
+            <div class="photo-grid" role="list">
+                <div class="photo-card" role="listitem">
+                    <img src="https://sdmntprsouthcentralus.oaiusercontent.com/files/00000000-0e94-51f7-ba64-837bf94197f3/raw?se=2025-04-05T07%3A21%3A46Z&sp=r&sv=2024-08-04&sr=b&scid=918acd28-c628-53cd-901b-2ba3c3ea0e82&skoid=7c382de0-129f-486b-9922-6e4a89c6eb7d&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-04T14%3A41%3A40Z&ske=2025-04-05T14%3A41%3A40Z&sks=b&skv=2024-08-04&sig=SufzGI%2BPHfTQmBd0NjCyzTJwkiuB082YpK3L990WVEA%3D" 
+                         alt="Dense green forest with sunlight filtering through the trees"
+                         width="400"
+                         height="300">
+                    <p>Ancient forest in the Pacific Northwest</p>
+                </div>
+                <div class="photo-card" role="listitem">
+                    <img src="https://sdmntprsouthcentralus.oaiusercontent.com/files/00000000-c56c-51f7-b39d-c987d2b394fd/raw?se=2025-04-05T07%3A26%3A12Z&sp=r&sv=2024-08-04&sr=b&scid=60bda4bf-ba8b-5566-9683-de41d7821d22&skoid=7c382de0-129f-486b-9922-6e4a89c6eb7d&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-04T09%3A06%3A56Z&ske=2025-04-05T09%3A06%3A56Z&sks=b&skv=2024-08-04&sig=jnSHiyWJUx5fb5D4QDu4O4m%2Bi1CXhar/9b333PIV5YA%3D" 
+                         alt="Red sandstone formations in the desert under a blue sky"
+                         width="400"
+                         height="300">
+                    <p>Sandstone formations in the Arizona desert</p>
+                </div>
+            </div>
+        </section>
+        
+        <section aria-labelledby="newsletter-heading">
+            <h2 id="newsletter-heading">Join Our Newsletter</h2>
+            <form aria-label="Newsletter signup form">
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required aria-required="true" autocomplete="name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" required aria-required="true" autocomplete="email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="frequency">Update Frequency:</label>
+                    <select id="frequency" name="frequency" aria-describedby="frequency-help">
+                        <option value="" selected disabled>Select frequency</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly">Monthly</option>
+                        <option value="quarterly">Quarterly</option>
+                    </select>
+                    <small id="frequency-help" class="help-text">How often would you like to receive updates?</small>
+                </div>
+                
+                <div class="form-group email-updates-checkbox">
+                    <input type="checkbox" id="consent" name="consent" required aria-required="true">
+                    <label for="consent">I agree to receive email updates</label>
+                </div>
+                
+                <button type="submit" aria-label="Subscribe to newsletter">Subscribe</button>
+            </form>
+        </section>
+    </main>
+    
+    <footer role="contentinfo">
+        <p>&copy; <span id="current-year">2023</span> Nature Photography. All rights reserved.</p>
+        <nav aria-label="Footer navigation">
+            <ul>
+                <li><a href="#privacy">Privacy Policy</a></li>
+                <li><a href="#accessibility">Accessibility Statement</a></li>
+                <li><a href="#terms">Terms of Service</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+    <script>
+        // Update copyright year automatically
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        document.addEventListener('keyup', function(e) {
+            if (e.key === 'Tab') {
+                document.documentElement.classList.add('keyboard-navigation');
+            }
+        });
+        
+        document.addEventListener('mousedown', function() {
+            document.documentElement.classList.remove('keyboard-navigation');
+        });
+    </script>
+</body>
+</html>
