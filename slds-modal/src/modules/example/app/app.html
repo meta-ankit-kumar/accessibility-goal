@@ -1,0 +1,14 @@
+<template>
+    <main>
+        <img src="/public/assets/recipes-logo.png" alt="logo" />
+        <h1>Hello World!</h1>
+        <modal-component 
+        is-open={isOpen}
+        onclose={handleModalClose}
+        onconfirm={handleModalConfirm}
+    >
+        <span slot="header">Confirm Action</span>
+        <p>Are you sure you want to perform this action?</p>
+    </modal-component>
+    </main>
+</template>
