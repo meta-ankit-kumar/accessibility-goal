@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Danish Composers Tabs</title>
+  <style>
+    .tabs {
+      max-width: 700px;
+      margin: 20px auto;
+      font-family: Arial, sans-serif;
+    }
+    .tablist {
+      display: flex;
+      border-bottom: 2px solid #ccc;
+    }
+    .tab {
+      padding: 10px 16px;
+      margin-right: 5px;
+      border: 1px solid #ccc;
+      border-bottom: none;
+      background: #f1f1f1;
+      cursor: pointer;
+    }
+    .tab[aria-selected="true"] {
+      background: #fff;
+      border-bottom: 2px solid white;
+      font-weight: bold;
+    }
+    .tabpanel {
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-top: none;
+    }
+    a {
+      color: #0645AD;
+    }
+  </style>
+</head>
+<body>
+  <div class="tabs" role="tablist" aria-label="Danish Composers Tabs">
+    <div class="tablist" role="tablist">
+      <button class="tab" role="tab" id="tab-0" aria-selected="true" aria-controls="panel-0" tabindex="0">Maria Ahlefeldt</button>
+      <button class="tab" role="tab" id="tab-1" aria-selected="false" aria-controls="panel-1" tabindex="-1">Carl Andersen</button>
+      <button class="tab" role="tab" id="tab-2" aria-selected="false" aria-controls="panel-2" tabindex="-1">Ida da Fonseca</button>
+      <button class="tab" role="tab" id="tab-3" aria-selected="false" aria-controls="panel-3" tabindex="-1">Peter Muller</button>
+    </div>
+
+    <div class="tabpanel" role="tabpanel" id="panel-0" tabindex="0" aria-labelledby="tab-0">
+      <p><a href="#">Maria Theresia Ahlefeldt</a> (16 January 1755 – 20 December 1810) was a Danish, (originally German), composer. She is known as the first female composer in Denmark. Maria Theresia composed music for several ballets, operas, and plays of the royal theatre. She was given good critic as a composer and described as a "virkelig Tonekunstnerinde" (“a True Artist of Music”).</p>
+    </div>
+    <div class="tabpanel" role="tabpanel" id="panel-1" tabindex="0" aria-labelledby="tab-1" hidden>
+      <p>Content for Carl Andersen goes here.</p>
+    </div>
+    <div class="tabpanel" role="tabpanel" id="panel-2" tabindex="0" aria-labelledby="tab-2" hidden>
+      <p>Content for Ida da Fonseca goes here.</p>
+    </div>
+    <div class="tabpanel" role="tabpanel" id="panel-3" tabindex="0" aria-labelledby="tab-3" hidden>
+      <p>Content for Peter Muller goes here.</p>
+    </div>
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll('[role="tab"]');
+    const tabPanels = document.querySelectorAll('[role="tabpanel"]');
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => activateTab(index));
+      tab.addEventListener('keydown', (e) => {
+        const key = e.key;
+        let newIndex;
+
+        if (key === 'ArrowRight') {
+          newIndex = (index + 1) % tabs.length;
+        } else if (key === 'ArrowLeft') {
+          newIndex = (index - 1 + tabs.length) % tabs.length;
+        } else if (key === 'Home') {
+          newIndex = 0;
+        } else if (key === 'End') {
+          newIndex = tabs.length - 1;
+        }
+
+        if (newIndex !== undefined) {
+          e.preventDefault();
+          tabs[newIndex].focus();
+          activateTab(newIndex);
+        }
+      });
+    });
+
+    function activateTab(index) {
+      tabs.forEach((tab, i) => {
+        const selected = i === index;
+        tab.setAttribute('aria-selected', selected);
+        tab.setAttribute('tabindex', selected ? '0' : '-1');
+        tabPanels[i].hidden = !selected;
+      });
+    }
+  </script>
+</body>
+</html>
